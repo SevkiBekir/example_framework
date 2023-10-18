@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.21)
 project(axelera_lib)
 
-
+# Options
 option(LIB_DEB_PACKAGE "CMake code to build debian package" ON)
+option(BUILD_TESTING "Build unit tests" OFF)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
@@ -12,8 +13,8 @@ find_package(Python3 REQUIRED COMPONENTS Interpreter Development)
 find_package(pybind11 REQUIRED)
 
 # Add the C++ source files
-file(GLOB_RECURSE SOURCES ${PROJECT_SOURCE_DIR}/*.cpp)
-file(GLOB_RECURSE HEADERS ${PROJECT_SOURCE_DIR}/*.h)
+file(GLOB_RECURSE SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp)
+file(GLOB_RECURSE HEADERS ${PROJECT_SOURCE_DIR}/include/*.h)
 list(APPEND ALL_SRCS ${SOURCES} ${HEADERS})
 
 # Create a library
@@ -35,8 +36,9 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         )
 
 if(BUILD_TESTING)
-    # Build and run tests using add_subdirectory
-    # add_subdirectory(tests)
+    # Add unit tests
+    enable_testing()
+    add_subdirectory(unit_tests)
 endif()
 
 if(LIB_DEB_PACKAGE)
@@ -45,7 +47,7 @@ if(LIB_DEB_PACKAGE)
     COMPONENT ${PROJECT_NAME})
 
     install(FILES
-        ${PROJECT_SOURCE_DIR}/include/ax_sort.h
+        ${PROJECT_SOURCE_DIR}/include/axelera_sort.h
     
         DESTINATION /usr/include
         COMPONENT ${PROJECT_NAME})
