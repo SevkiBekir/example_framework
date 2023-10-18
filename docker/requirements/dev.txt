@@ -1,2 +1,5 @@
 # Google Test
 libgtest-dev
+
+# Python dev
+libpython3-dev

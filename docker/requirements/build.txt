@@ -1,3 +1,6 @@
 build-essential
 cmake
 sudo
+doxygen
+valgrind
+graphviz
