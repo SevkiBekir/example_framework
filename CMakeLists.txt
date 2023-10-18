@@ -35,6 +35,9 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         ${pybind11_LIBRARIES}
         )
 
+# Add the Python binding code
+add_subdirectory(python)
+
 if(BUILD_TESTING)
     # Add unit tests
     enable_testing()
@@ -73,7 +76,6 @@ find_package(Doxygen REQUIRED)
 if(DOXYGEN_FOUND)
     set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/doc/Doxyfile)
     set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
-    message(DOXYGEN_OUT: ${DOXYGEN_OUT})
 
     configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
 
