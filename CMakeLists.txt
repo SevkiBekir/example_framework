@@ -67,13 +67,24 @@ endif()
 
 
 
-# Doxygen documentation (optional)
-# find_package(Doxygen)
+# Doxygen documentation
+find_package(Doxygen REQUIRED)
 
-# if(DOXYGEN_FOUND)
-#     doxygen_add_docs(doxygen
-#             "${CMAKE_CURRENT_SOURCE_DIR}/src"
-#             "${CMAKE_CURRENT_SOURCE_DIR}/include"
-#             COMMENT "Generate documentation"
-#             )
-# endif()
+if(DOXYGEN_FOUND)
+    set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/doc/Doxyfile)
+    set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
+    message(DOXYGEN_OUT: ${DOXYGEN_OUT})
+
+    configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
+
+    add_custom_target(docs ALL
+        COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
+        WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/include
+        COMMENT "Generating documentation with Doxygen"
+        VERBATIM
+    )
+
+    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc/html
+        DESTINATION ${CMAKE_INSTALL_PREFIX}/share/doc
+    )
+endif()
