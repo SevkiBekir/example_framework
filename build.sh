@@ -44,7 +44,7 @@ print_full_help() {
 # ---------------------------------------------------------------------------- #
 
 perform_clean() {
-    if [[ clean = yes ]]; then
+    if [[ $clean = yes ]]; then
         echo "Cleaning..."
         rm -rf $build_dir
         echo "Cleaning... - done"
@@ -56,7 +56,9 @@ build() {
     echo "Building..."
 
     mkdir -p $build_dir
+    mkdir -p $build_dir/doc
     cd $build_dir
+
     cmake -DCMAKE_BUILD_TYPE=$build_type -DBUILD_TESTING=OFF ..
     make -j$(nproc) package
     cd -
