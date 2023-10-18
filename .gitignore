@@ -5,3 +5,6 @@
 build/*
 build_*
 test_build*
+
+# MacOS
+.DS_Store
