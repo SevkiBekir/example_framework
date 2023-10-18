@@ -1,2 +1,6 @@
 # VSCode
 .vscode
+
+# Build dirs
+build/*
+build_*/*
