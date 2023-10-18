@@ -3,4 +3,5 @@
 
 # Build dirs
 build/*
-build_*/*
+build_*
+test_build*
