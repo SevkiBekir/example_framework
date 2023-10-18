@@ -169,4 +169,4 @@ set_full_image_name
 build_docker
 
 # run docker container
-run_docker
+run_docker $@
