@@ -1,6 +1,6 @@
 #include <algorithm>
 
-#include "ax_sort.h"
+#include "axelera_sort.h"
 
 // QuickSort implementation
 void Sort::quickSort(std::vector<int> &arr) {
