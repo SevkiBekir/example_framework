@@ -12,6 +12,7 @@ set -e
 clean=
 build_type=Release
 build_dir=test_build
+PROJECT_DIR=$(pwd)
 
 # ---------------------------------------------------------------------------- #
 #                                     HELP                                     #
@@ -58,7 +59,7 @@ build() {
     mkdir -p $build_dir
     cd $build_dir
     cmake -DCMAKE_BUILD_TYPE=$build_type -DBUILD_TESTING=ON ..
-    make -j$(nproc)
+    make -j$(nproc) package
     cd -
 
     echo "Building with unit tests... - done"
@@ -66,9 +67,22 @@ build() {
 
 run_tests() {
     echo "---------------------------------- TESTING ---------------------------------"
+    echo "Testing..."
+
+    # Run the unit tests
+    run_unit_tests
+
+    # Run the python tests
+    run_python_tests
+
+    echo "Testing... - done"
+}
+
+run_unit_tests() {
+    echo "------------------------------- UNIT TESTING -------------------------------"
     echo "Running unit tests..."
 
-    cd $build_dir/unit_tests
+    cd $build_dir/tests/unit_tests
 
     # Run the unit tests with memory check
     ctest -T MemCheck \
@@ -81,6 +95,33 @@ run_tests() {
     cd -
 
     echo "Running unit tests... - done"
+}
+
+run_python_tests() {
+    echo "------------------------------ PYTHON TESTS -------------------------------"
+    echo "Running python tests..."
+
+    cd $PROJECT_DIR/tests/python_tests
+
+    # Run the python tests
+    python3 -m unittest discover -s . -p "test_*.py"
+
+    cd -
+
+    echo "Running python tests... - done"
+}
+
+install_framework() {
+    echo "---------------------------------- INSTALL ---------------------------------"
+    echo "Installing Axelera Framework package..."
+
+    cd $build_dir
+    ls -l
+    framework_name=axelera_framework_*
+    sudo dpkg -i $framework_name.deb
+    cd -
+
+    echo "Installing package... - done"
 }
 
 # ---------------------------------------------------------------------------- #
@@ -126,6 +167,9 @@ perform_clean
 
 # Build the library with the unit tests
 build
+
+# Install the framework package
+install_framework
 
 # Run the unit tests
 run_tests
