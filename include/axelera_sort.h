@@ -14,26 +14,26 @@ public:
      *
      * @param arr The vector to be sorted.
      */
-    static void quickSort(std::vector<int> &arr);
+    void quickSort(std::vector<int> &arr);
 
     /**
      * @brief Sorts a vector using the MergeSort algorithm.
      *
      * @param arr The vector to be sorted.
      */
-    static void mergeSort(std::vector<int> &arr);
+    void mergeSort(std::vector<int> &arr);
 
     /**
      * @brief Sorts a vector using the std::sort algorithm (C++ Standard Library sort).
      *
      * @param arr The vector to be sorted.
      */
-    static void stdSort(std::vector<int> &arr);
+    void stdSort(std::vector<int> &arr);
 
 private:
     // Helper function for QuickSort
-    static void quickSortRecursive(std::vector<int> &arr, int low, int high);
-    static int partition(std::vector<int> &arr, int low, int high);
+    void quickSortRecursive(std::vector<int> &arr, int low, int high);
+    int partition(std::vector<int> &arr, int low, int high);
 };
 
 

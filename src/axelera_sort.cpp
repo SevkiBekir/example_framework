@@ -64,5 +64,5 @@ void Sort::mergeSort(std::vector<int> &arr) {
 
 // std::sort wrapper
 void Sort::stdSort(std::vector<int> &arr) {
-    std::sort(arr.begin(), arr.end());
+        std::sort(arr.begin(), arr.end());
 }
