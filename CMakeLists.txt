@@ -41,7 +41,7 @@ add_subdirectory(python)
 if(BUILD_TESTING)
     # Add unit tests
     enable_testing()
-    add_subdirectory(unit_tests)
+    add_subdirectory(tests)
 endif()
 
 if(LIB_DEB_PACKAGE)
