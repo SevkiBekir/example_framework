@@ -87,7 +87,6 @@ run_docker() {
         $env_args \
         $volumes \
          -v $(pwd):$working_dir \
-        -u $(id -u):$(id -g) \
         --name $container_name \
         -w $working_dir \
         $full_image_name \
