@@ -116,7 +116,6 @@ install_framework() {
     echo "Installing Axelera Framework package..."
 
     cd $build_dir
-    ls -l
     framework_name=axelera_framework_*
     sudo dpkg -i $framework_name.deb
     cd -
