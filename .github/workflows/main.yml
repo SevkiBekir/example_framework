@@ -16,6 +16,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
+    - name: Create Folders
+      working-directory: ${{github.workspace}}
+      run: mkdir -p build_${{env.ARCH} && mkdir -p test_build_${{env.ARCH}
     
     - name: Build
       working-directory: ${{github.workspace}}
