@@ -23,16 +23,16 @@ RUN rm -rf /var/lib/apt/lists/*
 
 
 # Create a user
-RUN useradd -m docker_user
+# RUN useradd -m docker_user
 
 # Add the user to the sudo group to grant sudo privileges
-RUN usermod -aG sudo docker_user
+# RUN usermod -aG sudo docker_user
 
 # Set a password for the user
-RUN echo 'docker_user:password' | chpasswd
+# RUN echo 'docker_user:password' | chpasswd
 
 # Allow the user to run sudo without a password
-RUN echo 'docker_user ALL=(ALL:ALL) NOPASSWD:ALL' > /etc/sudoers.d/docker_user
+# RUN echo 'docker_user ALL=(ALL:ALL) NOPASSWD:ALL' > /etc/sudoers.d/docker_user
 
 # Switch to the user
-USER docker_user
+# USER docker_user
