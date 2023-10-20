@@ -26,5 +26,5 @@ jobs:
 
     - name: C++ Unit Tests && Python Tests
       working-directory: ${{github.workspace}}
-      # Build the framwork
+      # Test the framwork
       run: ./docker.sh --verbose --github ./test.sh --build-dir test_build_${{env.ARCH}} --build-type ${{env.BUILD_TYPE}}
