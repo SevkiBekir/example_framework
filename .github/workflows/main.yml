@@ -19,7 +19,7 @@ jobs:
 
     - name: Create Folders
       working-directory: ${{github.workspace}}
-      run: mkdir -p build_${{env.ARCH}} && mkdir -p test_build_${{env.ARCH}}
+      run: mkdir -p build_${{env.ARCH}} && mkdir -p build_${{env.ARCH}}/doc && mkdir -p test_build_${{env.ARCH}} && mkdir -p test_build_${{env.ARCH}}/doc
     
     - name: Build
       working-directory: ${{github.workspace}}
