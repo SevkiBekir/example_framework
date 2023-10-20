@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.21)
-project(pyaxelera_framework)
+project(pyaxelera_framework LANGUAGES CXX)
 
 set(PROJECT_DIR ..)
 

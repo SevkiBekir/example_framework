@@ -8,22 +8,23 @@ on:
 
 env:
   BUILD_TYPE: Release
-  ARCH: amd64
 
 jobs:
-  build:
+  framework_amd64:
+    name: Axelera Framework | amd64
+    env:
+      ARCH: amd64
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    
+
     - name: Build
       working-directory: ${{github.workspace}}
       # Build the framwork
-      run: ./docker.sh --verbose --github ./build.sh --build-dir build_${{env.ARCH}} --build-type ${{env.BUILD_TYPE}} --clean
+      run: ./docker.sh --verbose --github ./build.sh --build-dir build_${{env.ARCH}} --build-type ${{env.BUILD_TYPE}}
 
-    - name: C++ Unit Test & Python Test
+    - name: C++ Unit Tests && Python Tests
       working-directory: ${{github.workspace}}
-      # C++ Unit Test
-      run: ./docker.sh --verbose --github ./test.sh --build-dir test_build_${{env.ARCH}} --build-type ${{env.BUILD_TYPE}} --clean
-  
+      # Test the framwork
+      run: ./docker.sh --verbose --github ./test.sh --build-dir test_build_${{env.ARCH}} --build-type ${{env.BUILD_TYPE}}
