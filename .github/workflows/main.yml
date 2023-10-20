@@ -11,7 +11,7 @@ env:
 
 jobs:
   framework_amd64:
-    name: Framework amd64
+    name: Axelera Framework | amd64
     env:
       ARCH: amd64
     runs-on: ubuntu-latest
@@ -23,3 +23,8 @@ jobs:
       working-directory: ${{github.workspace}}
       # Build the framwork
       run: ./docker.sh --verbose --github ./build.sh --build-dir build_${{env.ARCH}} --build-type ${{env.BUILD_TYPE}}
+
+    - name: C++ Unit Tests && Python Tests
+      working-directory: ${{github.workspace}}
+      # Build the framwork
+      run: ./docker.sh --verbose --github ./test.sh --build-dir test_build_${{env.ARCH}} --build-type ${{env.BUILD_TYPE}}
