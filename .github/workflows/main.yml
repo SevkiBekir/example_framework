@@ -1,0 +1,29 @@
+name: Axelera Framework CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  BUILD_TYPE: Release
+  ARCH: amd64
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Build
+      working-directory: ${{github.workspace}}
+      # Build the framwork
+      run: ./docker.sh --verbose --github ./build.sh --build-dir build_${{ARCH}} --build-type ${{env.BUILD_TYPE}} --clean
+
+    - name: C++ Unit Test & Python Test
+      working-directory: ${{github.workspace}}
+      # C++ Unit Test
+      run: ./docker.sh --verbose --github ./test.sh --build-dir test_build_${{ARCH}} --build-type ${{env.BUILD_TYPE}} --clean
+  
