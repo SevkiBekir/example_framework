@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.21)
-project(test_axelera_framework)
+project(test_axelera_framework LANGUAGES CXX)
 
 # Find Google Test
 find_package(GTest REQUIRED)

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.21)
-project(axelera_framework)
+project(axelera_framework LANGUAGES CXX)
 
 # Options
 option(LIB_DEB_PACKAGE "CMake code to build debian package" ON)
