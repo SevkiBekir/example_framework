@@ -13,6 +13,8 @@ clean=
 build_type=Release
 build_dir=test_build
 PROJECT_DIR=$(pwd)
+cpp_tests=no
+python_tests=no
 
 # ---------------------------------------------------------------------------- #
 #                                     HELP                                     #
@@ -26,6 +28,9 @@ Options:
     --build-type TYPE :Type of test build (default Release)
     --build-dir DIR   :Directory in which to test build (default ./test_build): 
     --clean           :Clean the build directory before building
+    --cpp-tests       :Run the C++ unit tests
+    --python-tests    :Run the Python binding tests
+    --all-tests       :Run all the tests
 
 EOF
 }
@@ -70,10 +75,14 @@ run_tests() {
     echo "Testing..."
 
     # Run the unit tests
-    run_unit_tests
+    if [[ $cpp_tests = yes ]]; then
+        run_unit_tests
+    fi
 
-    # Run the python tests
-    run_python_tests
+    # Run the python binding tests
+    if [[ $python_tests = yes ]]; then
+        run_python_tests
+    fi
 
     echo "Testing... - done"
 }
@@ -142,6 +151,19 @@ while [ $# -gt 0 ]; do
     --clean)
         shift
         clean=yes
+        ;;
+    --cpp-tests)
+        shift
+        cpp_tests=yes
+        ;;
+    --python-tests)
+        shift
+        python_tests=yes
+        ;;
+    --all-tests)
+        shift
+        cpp_tests=yes
+        python_tests=yes
         ;;
     -h | --help)
         print_full_help

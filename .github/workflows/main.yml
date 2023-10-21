@@ -22,9 +22,9 @@ jobs:
     - name: Build
       working-directory: ${{github.workspace}}
       # Build the framwork
-      run: ./docker.sh --verbose --github ./build.sh --build-dir build_${{env.ARCH}} --build-type ${{env.BUILD_TYPE}}
+      run: ./docker.sh --verbose --github ./build.sh --build-dir build_${{env.ARCH}} --build-type ${{env.BUILD_TYPE}} --clean
 
     - name: C++ Unit Tests && Python Tests
       working-directory: ${{github.workspace}}
       # Test the framwork
-      run: ./docker.sh --verbose --github ./test.sh --build-dir test_build_${{env.ARCH}} --build-type ${{env.BUILD_TYPE}}
+      run: ./docker.sh --verbose --github ./test.sh --build-dir test_build_${{env.ARCH}} --build-type ${{env.BUILD_TYPE}} --clean --all-tests
