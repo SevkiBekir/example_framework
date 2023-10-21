@@ -43,7 +43,7 @@ class TestAxeleraFrameworkSort(unittest.TestCase):
                8765, 9387, 1209, 2235, 8315, 636, 1834, 196, 6201, 9905, 1706, 4913, 2679, 9678, 
                4553, 7473, 7094, 320, 5061, 3665, 9833, 4568, 3189, 662, 896, 587, 3587, 797]
         
-        self._random_numbers_list = [random.randint(1, 100000) for _ in range(10000)]
+        self._random_numbers_list = [random.randint(1, 100000) for _ in range(100000)]
         
         # Sorted lists
         self._sorted_small_list = sorted(self._small_list)
