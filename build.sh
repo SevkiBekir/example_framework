@@ -12,6 +12,8 @@ set -e
 clean=
 build_type=Release
 build_dir=build
+install=no
+only_install=no
 
 # ---------------------------------------------------------------------------- #
 #                                     HELP                                     #
@@ -23,7 +25,9 @@ This script builds the library
 
 Options:
     --build-type TYPE :Type of build (default Release)
-    --build-dir DIR   :Directory in which to build (default ./build): 
+    --build-dir DIR   :Directory in which to build (default ./build):
+    --install         :Install the library after building 
+    --only-install    :Only install the library
     --clean           :Clean the build directory before building
 
 EOF
@@ -66,6 +70,18 @@ build() {
     echo "Building... - done"
 }
 
+install_framework() {
+    echo "---------------------------------- INSTALL ---------------------------------"
+    echo "Installing Axelera Framework package..."
+
+    cd $build_dir
+    framework_name=axelera_framework_*
+    sudo dpkg -i $framework_name.deb
+    cd -
+
+    echo "Installing package... - done"
+}
+
 # ---------------------------------------------------------------------------- #
 #                                ARGUMENT PARSER                               #
 # ---------------------------------------------------------------------------- #
@@ -85,6 +101,14 @@ while [ $# -gt 0 ]; do
     --clean)
         shift
         clean=yes
+        ;;
+    --install)
+        shift
+        install=yes
+        ;;
+    --only-install)
+        shift
+        only_install=yes
         ;;
     -h | --help)
         print_full_help
@@ -107,5 +131,16 @@ perform_clean
 #                                     MAIN                                     #
 # ---------------------------------------------------------------------------- #
 
+# Only install the library
+if [[ $only_install = yes ]]; then
+    install_framework
+    exit 0
+fi
+
 # Build the library
 build
+
+# Install the library
+if [[ $install = yes ]]; then
+    install_framework
+fi
