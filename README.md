@@ -39,7 +39,12 @@ If you have the same architecture with `amd64` and platform Ubunut Jammy, you ca
 ### Run Tests
 To run tests, you should run the following command in the root directory of the project:
 ```bash
-./docker.sh -v ./test.sh --build-dir test_build_amd64 --build-type Release
+./docker.sh -v ./test.sh --build-dir test_build_amd64 --build-type Release --all-tests
+```
+
+Also, you can run only C++ unit tests by running the following command in the root directory of the project:
+```bash
+./docker.sh -v ./test.sh --build-dir test_build_amd64 --build-type Release --cpp-tests
 ```
 
 ## Help
