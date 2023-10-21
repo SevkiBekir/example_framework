@@ -4,41 +4,41 @@
 #include <vector>
 
 /**
- * @class Sort
- * @brief A class that provides various sorting algorithms.
+ * @class AxeleraSort
+ * @brief A class that provides various sorting algorithms for Axelera Framework.
  */
-class Sort {
+class AxeleraSort {
 public:
 
     /**
      * @brief Default constructor.
      */
-    Sort() = default;
+    AxeleraSort() = default;
 
     /**
      * @brief Deleted copy constructor.
      */
-    Sort(const Sort&) = delete;
+    AxeleraSort(const AxeleraSort&) = delete;
 
     /**
      * @brief Deleted copy assignment operator.
      */
-    Sort& operator=(const Sort&) = delete;
+    AxeleraSort& operator=(const AxeleraSort&) = delete;
 
     /**
      * @brief Deleted move constructor.
      */
-    Sort(Sort&&) = delete;
+    AxeleraSort(AxeleraSort&&) = delete;
 
     /**
      * @brief Deleted move assignment operator.
      */
-    Sort& operator=(Sort&&) = delete;
+    AxeleraSort& operator=(AxeleraSort&&) = delete;
 
     /**
      * @brief Default destructor.
      */
-    virtual ~Sort() = default;
+    virtual ~AxeleraSort() = default;
 
 
     /**

@@ -3,11 +3,11 @@
 #include "axelera_sort.h"
 
 // QuickSort implementation
-void Sort::quickSort(std::vector<int> &arr) {
+void AxeleraSort::quickSort(std::vector<int> &arr) {
     quickSortRecursive(arr, 0, arr.size() - 1);
 }
 
-void Sort::quickSortRecursive(std::vector<int> &arr, int low, int high) {
+void AxeleraSort::quickSortRecursive(std::vector<int> &arr, int low, int high) {
     if (low < high) {
         int pivot = partition(arr, low, high);
         quickSortRecursive(arr, low, pivot - 1);
@@ -15,7 +15,7 @@ void Sort::quickSortRecursive(std::vector<int> &arr, int low, int high) {
     }
 }
 
-int Sort::partition(std::vector<int> &arr, int low, int high) {
+int AxeleraSort::partition(std::vector<int> &arr, int low, int high) {
     int pivot = arr[high];
     int i = (low - 1);
     for (int j = low; j <= high - 1; j++) {
@@ -29,7 +29,7 @@ int Sort::partition(std::vector<int> &arr, int low, int high) {
 }
 
 // MergeSort implementation
-void Sort::mergeSort(std::vector<int> &arr) {
+void AxeleraSort::mergeSort(std::vector<int> &arr) {
     if (arr.size() <= 1) {
         return;
     }
@@ -63,12 +63,12 @@ void Sort::mergeSort(std::vector<int> &arr) {
 }
 
 // std::sort wrapper
-void Sort::stdSort(std::vector<int> &arr) {
+void AxeleraSort::stdSort(std::vector<int> &arr) {
         std::sort(arr.begin(), arr.end());
 }
 
 // BubbleSort implementation
-void Sort::bubbleSort(std::vector<int> &arr) {
+void AxeleraSort::bubbleSort(std::vector<int> &arr) {
     for (std::vector<int>::size_type i = 0; i < arr.size() - 1; i++) {
         for (std::vector<int>::size_type j = 0; j < arr.size() - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {

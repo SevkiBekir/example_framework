@@ -13,7 +13,7 @@ class TestAxeleraFrameworkSort(unittest.TestCase):
         Test Axelera Framework Quick Sort
     '''
     def setUp(self) -> None:
-        self._axelera_framework = axelera_fw.Sort()
+        self._axelera_framework = axelera_fw.AxeleraSort()
         self.init_test_setup()
         
         return super().setUp()

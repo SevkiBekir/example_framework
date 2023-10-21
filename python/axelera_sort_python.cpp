@@ -13,7 +13,7 @@
 namespace py = pybind11;
 
 // Define a function to handle sorting and updating the Python list
-void sortAndSetList(Sort& self, py::list& pyList, const std::string& functionName) {
+void sortAndSetList(AxeleraSort& self, py::list& pyList, const std::string& functionName) {
     // Convert the Python list to a C++ vector
     std::vector<int> cppVector;
     for (auto item : pyList) {
@@ -43,19 +43,19 @@ void sortAndSetList(Sort& self, py::list& pyList, const std::string& functionNam
 }
 
 PYBIND11_MODULE(pyaxelera_framework, m) {
-    m.doc() = "Python binding for axelera_framework";
-    py::class_<Sort>(m, "Sort")
+    m.doc() = "Python binding for Axelera Framework";
+    py::class_<AxeleraSort>(m, "AxeleraSort")
         .def(py::init<>()) // Default constructor
-        .def("quickSort", [](Sort& self, py::list& pyList) {
+        .def("quickSort", [](AxeleraSort& self, py::list& pyList) {
             sortAndSetList(self, pyList, "quickSort");
         }, "quick sort", py::arg("arr"))
-        .def("mergeSort", [](Sort& self, py::list& pyList) {
+        .def("mergeSort", [](AxeleraSort& self, py::list& pyList) {
             sortAndSetList(self, pyList, "mergeSort");
         }, "merge sort", py::arg("arr"))
-        .def("stdSort", [](Sort& self, py::list& pyList) {
+        .def("stdSort", [](AxeleraSort& self, py::list& pyList) {
             sortAndSetList(self, pyList, "stdSort");
         }, "std sort", py::arg("arr"))
-        .def("bubbleSort", [](Sort& self, py::list& pyList) {
+        .def("bubbleSort", [](AxeleraSort& self, py::list& pyList) {
             sortAndSetList(self, pyList, "bubbleSort");
         }, "bubble sort", py::arg("arr"));
 }

@@ -13,7 +13,7 @@ protected:
         // Clean up any resources used by the tests here.
     }
 
-    Sort sorter; // create an object of the Sort class
+    AxeleraSort sorter; // create an object of the Axelera Sort class
 };
 
 TEST_F(AxeleraSortTest, QuickSortTest) {
