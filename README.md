@@ -1,4 +1,57 @@
 [![Axelera Framework CI/CD](https://github.com/SevkiBekir/axelera/actions/workflows/main.yml/badge.svg)](https://github.com/SevkiBekir/axelera/actions/workflows/main.yml)
 
-# axelera
-It's solution of the problem which is given by Axelera's AI team
+# Axelera Framework
+It's solution of the problem which is given by Axelera's AI team.  
+
+The problem is below.
+
+## Problem
+Write the build and test system for the following library:
+
+We want to write an “efficient” python library that takes an array of numbers and sorts them.
+
+We want  the “compute” intensive part to be implemented in C/C++ while provide python bindings so that our library can be called by our ML engineer who is not C/C++ experienced
+
+## Solution
+### Introduction
+The framework, called `AxeleraFramework` has C++ function which is sorting the given array, and python bindings to call C++ function from python. The framework has unit tests which are testing the C++ function, and python tests which are testing the python bindings. All of operations in the framework are running in docker container. The framework is also integrated with Github Actions CI/CD pipeline.
+
+### Requirements
+In order to build and run the framework, you should have `docker` installed on your system.
+
+### Supported Architectures
+The framework supports only `amd64` architecture. Will be supported other architectures in the future.
+
+### Build
+To build the framework, you should run the following command in the root directory of the project:
+```bash
+./docker.sh -v ./build.sh --build-dir build_amd64 --build-type Release
+```
+
+The framework will be built in `build_amd64` directory, and automatically installed in `/usr/lib` directory in the docker container.
+
+If you have the same architecture with `amd64` and platform Ubunut Jammy, you can install the framework on your system by running the following command in the root directory of the project:
+```bash
+./build.sh --build-dir build_amd64 --only-install
+```
+
+
+### Run Tests
+To run tests, you should run the following command in the root directory of the project:
+```bash
+./docker.sh -v ./test.sh --build-dir test_build_amd64 --build-type Release
+```
+
+## Help
+For more information, you can run the following command in the root directory of the project:
+```bash
+./docker.sh --help
+./build.sh --help
+./test.sh --help
+```
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Author
+[Sevki KOCADAG](mailto:bekirsevki@gmail.com)
