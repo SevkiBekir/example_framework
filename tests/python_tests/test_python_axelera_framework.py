@@ -218,9 +218,60 @@ class TestAxeleraFrameworkSort(unittest.TestCase):
         # Print the time difference in seconds
         print(f"Time taken: {time_difference:.6f} seconds")
         
-        arr = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
-        self._axelera_framework.stdSort(arr)
-        self.assertEqual(arr, [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9])
+    def test_bubble_sort(self):
+        print("\ntest_bubble_sort")
+        # Record the start time
+        start = time.time()
+        
+        
+        small_list = copy.deepcopy(self._small_list)
+        self._axelera_framework.bubbleSort(small_list)
+        self.assertEqual(small_list, self._sorted_small_list)
+        
+        # Record the end time
+        end = time.time()
+
+        # Calculate the time difference
+        time_difference = end - start
+
+        # Print the time difference in seconds
+        print(f"Time taken: {time_difference:.6f} seconds")
+        
+    def test_bubble_sort_with_long_list(self):
+        print("\ntest_bubble_sort_with_long_list")
+        # Record the start time
+        start = time.time()
+
+        long_list = copy.deepcopy(self._long_list)
+        self._axelera_framework.bubbleSort(long_list)
+        self.assertEqual(long_list, self._sorted_long_list)
+        
+        # Record the end time
+        end = time.time()
+
+        # Calculate the time difference
+        time_difference = end - start
+
+        # Print the time difference in seconds
+        print(f"Time taken: {time_difference:.6f} seconds")
+        
+    def test_bubble_sort_with_random_list(self):
+        print("\ntest_bubble_sort_with_random_list")
+        # Record the start time
+        start = time.time()
+        
+        random_list = copy.deepcopy(self._random_numbers_list)
+        self._axelera_framework.bubbleSort(random_list)
+        self.assertEqual(random_list, self._sorted_random_numbers_list)
+
+        # Record the end time
+        end = time.time()
+
+        # Calculate the time difference
+        time_difference = end - start
+
+        # Print the time difference in seconds
+        print(f"Time taken: {time_difference:.6f} seconds")
             
         
 if __name__ == '__main__':

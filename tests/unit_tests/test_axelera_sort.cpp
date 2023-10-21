@@ -35,6 +35,12 @@ TEST_F(AxeleraSortTest, StdSortTest) {
     ASSERT_EQ(arr, std::vector<int>({8, 12, 17, 32, 47, 56}));
 }
 
+TEST_F(AxeleraSortTest, BubbleSortTest) {
+    std::vector<int> arr = {17, 12, 56, 32, 8, 47};
+    sorter.bubbleSort(arr);
+    ASSERT_EQ(arr, std::vector<int>({8, 12, 17, 32, 47, 56}));
+}
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

@@ -9,6 +9,38 @@
  */
 class Sort {
 public:
+
+    /**
+     * @brief Default constructor.
+     */
+    Sort() = default;
+
+    /**
+     * @brief Deleted copy constructor.
+     */
+    Sort(const Sort&) = delete;
+
+    /**
+     * @brief Deleted copy assignment operator.
+     */
+    Sort& operator=(const Sort&) = delete;
+
+    /**
+     * @brief Deleted move constructor.
+     */
+    Sort(Sort&&) = delete;
+
+    /**
+     * @brief Deleted move assignment operator.
+     */
+    Sort& operator=(Sort&&) = delete;
+
+    /**
+     * @brief Default destructor.
+     */
+    virtual ~Sort() = default;
+
+
     /**
      * @brief Sorts a vector using the QuickSort algorithm.
      *
@@ -29,6 +61,13 @@ public:
      * @param arr The vector to be sorted.
      */
     void stdSort(std::vector<int> &arr);
+
+    /**
+     * @brief Sorts a vector using the BubbleSort algorithm.
+     *
+     * @param arr The vector to be sorted.
+     */
+    void bubbleSort(std::vector<int> &arr);
 
 private:
     // Helper function for QuickSort
