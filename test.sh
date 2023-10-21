@@ -36,7 +36,7 @@ EOF
 }
 
 print_usage() {
-    echo "$0 [--build-dir DIR] [--clean]"
+    echo "$0 [OPTIONS]"
     echo "$0 --help"
 }
 
@@ -49,6 +49,7 @@ print_full_help() {
 #                                   FUNCTIONS                                  #
 # ---------------------------------------------------------------------------- #
 
+# Clean build directory
 perform_clean() {
     if [[ $clean = yes ]]; then
         echo "Cleaning..."
@@ -57,6 +58,7 @@ perform_clean() {
     fi
 }
 
+# Build the framework
 build() {
     echo "----------------------------------- BUILD ----------------------------------"
     echo "Building with unit tests..."
@@ -70,6 +72,7 @@ build() {
     echo "Building with unit tests... - done"
 }
 
+# Run the tests
 run_tests() {
     echo "---------------------------------- TESTING ---------------------------------"
     echo "Testing..."
@@ -87,6 +90,7 @@ run_tests() {
     echo "Testing... - done"
 }
 
+# Run the C++ unit tests
 run_unit_tests() {
     echo "------------------------------- UNIT TESTING -------------------------------"
     echo "Running unit tests..."
@@ -106,6 +110,7 @@ run_unit_tests() {
     echo "Running unit tests... - done"
 }
 
+# Run the Python binding tests
 run_python_tests() {
     echo "------------------------------ PYTHON TESTS -------------------------------"
     echo "Running python tests..."
@@ -120,6 +125,7 @@ run_python_tests() {
     echo "Running python tests... - done"
 }
 
+# Install the framework
 install_framework() {
     echo "---------------------------------- INSTALL ---------------------------------"
     echo "Installing Axelera Framework package..."

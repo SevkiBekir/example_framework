@@ -46,7 +46,7 @@ EOF
 }
 
 print_usage() {
-    echo "$0 [--verbose] <SCRIPT_TO_BE_RUN>"
+    echo "$0 [OPTIONS] <SCRIPT_TO_BE_RUN>"
     echo "$0 --help"
 }
 
@@ -59,10 +59,12 @@ print_full_help() {
 #                                   FUNCTIONS                                  #
 # ---------------------------------------------------------------------------- #
 
+# Set full image name
 set_full_image_name() {
     full_image_name="${IMAGE_NAME}:${image_tag}"
 }
 
+# Build docker image
 build_docker() {
     echo "Docker building..."
     build_args="--build-arg DOCKER_IMAGE=${base_image}"
@@ -78,6 +80,7 @@ build_docker() {
     echo "Docker building... - done"
 }
 
+# Run docker container
 run_docker() {
     echo "Docker running..."
     container_name="${IMAGE_NAME}_${image_tag}_${arch}_${version}"
@@ -95,10 +98,12 @@ run_docker() {
     echo "Docker running... - done"
 }
 
+# Set version of the framework
 set_version(){
     version=$(cat version.txt)
 }
 
+# Set base image
 set_base_image(){
     base_image=${base_containers[$arch]}
 }
@@ -151,7 +156,7 @@ done
 #                                  PREPROCESS                                  #
 # ---------------------------------------------------------------------------- #
 
-# set version of the project
+# set version of the framework
 set_version
 
 # set base image

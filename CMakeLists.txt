@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.21)
+# Set the project name
 project(axelera_framework LANGUAGES CXX)
 
 # Options
@@ -20,6 +21,7 @@ list(APPEND ALL_SRCS ${SOURCES} ${HEADERS})
 # Create a library
 add_library(${PROJECT_NAME} STATIC ${SOURCES} ${HEADERS})
 
+# Set compiler flags
 target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Werror)
 
 # Include Pybind11 headers
@@ -44,11 +46,14 @@ if(BUILD_TESTING)
     add_subdirectory(tests)
 endif()
 
+# Install the framework
 if(LIB_DEB_PACKAGE)
+    # install framework
     install(FILES ${CMAKE_BINARY_DIR}/lib${PROJECT_NAME}.a
     DESTINATION /usr/lib
     COMPONENT ${PROJECT_NAME})
 
+    # install headers
     install(FILES
         ${PROJECT_SOURCE_DIR}/include/axelera_sort.h
     
@@ -58,6 +63,7 @@ if(LIB_DEB_PACKAGE)
     # take version number for the package from a file that contains release version
     file (STRINGS "version.txt" VERSION)
 
+    # create a debian package
     set(CPACK_GENERATOR DEB)
     set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
     set(CPACK_DEBIAN_PACKAGE_VERSION ${VERSION})
@@ -74,11 +80,14 @@ endif()
 find_package(Doxygen REQUIRED)
 
 if(DOXYGEN_FOUND)
+    # set input and output files
     set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/doc/Doxyfile)
     set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
 
+    # request to configure the file
     configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
 
+    # note the option ALL which allows to build the docs together with the framework
     add_custom_target(docs ALL
         COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
         WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/include
@@ -86,6 +95,7 @@ if(DOXYGEN_FOUND)
         VERBATIM
     )
 
+    # install the documentation
     install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/doc/html
         DESTINATION ${CMAKE_INSTALL_PREFIX}/share/doc
     )

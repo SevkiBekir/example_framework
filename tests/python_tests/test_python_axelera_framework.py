@@ -10,18 +10,29 @@ import pyaxelera_framework as axelera_fw
 
 class TestAxeleraFrameworkSort(unittest.TestCase):
     '''
-        Test Axelera Framework Quick Sort
+        Test Axelera Framework Sort
     '''
     def setUp(self) -> None:
+        '''
+            Set up the test
+        '''
         self._axelera_framework = axelera_fw.AxeleraSort()
         self.init_test_setup()
         
         return super().setUp()
     
     def tearDown(self) -> None:
+        '''
+            Tear down the test
+        '''
+        
+        
         return super().tearDown()
     
     def init_test_setup(self) -> None:
+        '''
+            Initialize the test setup
+        '''
         self._small_list = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5]
         self._long_list = [5264, 784, 2013, 9456, 6331, 2314, 8490, 7262, 1175, 379, 4521, 1563, 9077, 
                7593, 4145, 4977, 2487, 5184, 9403, 4729, 8627, 5856, 8952, 4995, 7228, 7069, 
@@ -52,6 +63,9 @@ class TestAxeleraFrameworkSort(unittest.TestCase):
 
 
     def test_quick_sort(self):
+        '''
+            Test quick sort with small list
+        '''
         print("\ntest_quick_sort")
         # Record the start time
         start = time.time()
@@ -71,6 +85,9 @@ class TestAxeleraFrameworkSort(unittest.TestCase):
         print(f"Time taken: {time_difference:.6f} seconds")
         
     def test_quick_sort_with_long_list(self):
+        '''
+            Test quick sort with long list
+        '''
         print("\ntest_quick_sort_with_long_list")
         # Record the start time
         start = time.time()
@@ -89,6 +106,9 @@ class TestAxeleraFrameworkSort(unittest.TestCase):
         print(f"Time taken: {time_difference:.6f} seconds")
         
     def test_quick_sort_with_random_list(self):
+        '''
+            Test quick sort with random list
+        '''
         print("\ntest_quick_sort_with_random_list")
         # Record the start time
         start = time.time()
@@ -108,6 +128,9 @@ class TestAxeleraFrameworkSort(unittest.TestCase):
 
     
     def test_merge_sort(self):
+        '''
+            Test merge sort with small list
+        '''
         print("\ntest_merge_sort")
         # Record the start time
         start = time.time()
@@ -127,6 +150,9 @@ class TestAxeleraFrameworkSort(unittest.TestCase):
         print(f"Time taken: {time_difference:.6f} seconds")
         
     def test_merge_sort_with_long_list(self):
+        '''
+            Test merge sort with long list
+        '''
         print("\ntest_merge_sort_with_long_list")
         # Record the start time
         start = time.time()
@@ -145,6 +171,9 @@ class TestAxeleraFrameworkSort(unittest.TestCase):
         print(f"Time taken: {time_difference:.6f} seconds")
         
     def test_merge_sort_with_random_list(self):
+        '''
+            Test merge sort with random list
+        '''
         print("\ntest_merge_sort_with_random_list")
         # Record the start time
         start = time.time()
@@ -164,6 +193,9 @@ class TestAxeleraFrameworkSort(unittest.TestCase):
         print(f"Time taken: {time_difference:.6f} seconds")
         
     def test_std_sort(self):
+        '''
+            Test std sort with small list
+        '''
         print("\ntest_std_sort")
         # Record the start time
         start = time.time()
@@ -183,6 +215,9 @@ class TestAxeleraFrameworkSort(unittest.TestCase):
         print(f"Time taken: {time_difference:.6f} seconds")
         
     def test_std_sort_with_long_list(self):
+        '''
+            Test std sort with long list
+        '''
         print("\ntest_std_sort_with_long_list")
         # Record the start time
         start = time.time()
@@ -201,6 +236,9 @@ class TestAxeleraFrameworkSort(unittest.TestCase):
         print(f"Time taken: {time_difference:.6f} seconds")
         
     def test_std_sort_with_random_list(self):
+        '''
+            Test std sort with random list
+        '''
         print("\ntest_std_sort_with_random_list")
         # Record the start time
         start = time.time()
@@ -219,6 +257,9 @@ class TestAxeleraFrameworkSort(unittest.TestCase):
         print(f"Time taken: {time_difference:.6f} seconds")
         
     def test_bubble_sort(self):
+        '''
+            Test bubble sort with small list
+        '''
         print("\ntest_bubble_sort")
         # Record the start time
         start = time.time()
@@ -238,6 +279,9 @@ class TestAxeleraFrameworkSort(unittest.TestCase):
         print(f"Time taken: {time_difference:.6f} seconds")
         
     def test_bubble_sort_with_long_list(self):
+        '''
+            Test bubble sort with long list
+        '''
         print("\ntest_bubble_sort_with_long_list")
         # Record the start time
         start = time.time()
@@ -273,6 +317,6 @@ class TestAxeleraFrameworkSort(unittest.TestCase):
         # Print the time difference in seconds
         print(f"Time taken: {time_difference:.6f} seconds")
             
-        
+# Run the test
 if __name__ == '__main__':
     unittest.main()
