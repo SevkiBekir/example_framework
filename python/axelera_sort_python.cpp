@@ -27,6 +27,10 @@ void sortAndSetList(Sort& self, py::list& pyList, const std::string& functionNam
         self.mergeSort(cppVector);
     } else if (functionName == "stdSort") {
         self.stdSort(cppVector);
+    } else if (functionName == "bubbleSort") {
+        self.bubbleSort(cppVector);
+    } else {
+        throw std::runtime_error("Invalid sorting function name");
     }
 
     // Clear the Python list
@@ -50,5 +54,8 @@ PYBIND11_MODULE(pyaxelera_framework, m) {
         }, "merge sort", py::arg("arr"))
         .def("stdSort", [](Sort& self, py::list& pyList) {
             sortAndSetList(self, pyList, "stdSort");
-        }, "std sort", py::arg("arr"));
+        }, "std sort", py::arg("arr"))
+        .def("bubbleSort", [](Sort& self, py::list& pyList) {
+            sortAndSetList(self, pyList, "bubbleSort");
+        }, "bubble sort", py::arg("arr"));
 }

@@ -66,3 +66,15 @@ void Sort::mergeSort(std::vector<int> &arr) {
 void Sort::stdSort(std::vector<int> &arr) {
         std::sort(arr.begin(), arr.end());
 }
+
+// BubbleSort implementation
+void Sort::bubbleSort(std::vector<int> &arr) {
+    for (std::vector<int>::size_type i = 0; i < arr.size() - 1; i++) {
+        for (std::vector<int>::size_type j = 0; j < arr.size() - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                std::swap(arr[j], arr[j + 1]);
+            }
+        }
+    }
+}
+  
