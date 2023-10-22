@@ -1,6 +1,7 @@
 [![Axelera Framework CI/CD](https://github.com/SevkiBekir/axelera/actions/workflows/main.yml/badge.svg)](https://github.com/SevkiBekir/axelera_framework/actions/workflows/main.yml)
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![Static Badge](https://img.shields.io/badge/version-1.0.0-red)
+
 
 # Axelera Framework
 It's solution of the problem which is given by Axelera's AI team.  
