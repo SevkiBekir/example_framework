@@ -36,7 +36,7 @@ This script builds docker image and runs the container based on the image
 
 Options:
     -v, --verbose: Enable showing the verbose information while building docker image
-    -g, --github: Run the script based on GitHub
+    -g, --github: Run the script based on GitHub Actions
     -t, --tag: Tag the docker image. Default is 'build'
     -a, --arch: Architecture of the base image. Default is 'amd64'
     -e, --env: Environment variables to be passed to the docker container

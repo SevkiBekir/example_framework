@@ -19,6 +19,10 @@ The framework, called `AxeleraFramework` has C++ function which is sorting the g
 ### Requirements
 In order to build and run the framework, you should have `docker` installed on your system.
 
+The project is tested on `Mac OS Ventura 13.6 (22G120)` and `Docker version 20.10.23, build 7155243`.
+
+The docker image is based on `Ubuntu Jammy 22.04`.
+
 ### Supported Architectures
 The framework supports only `amd64` architecture. Will be supported other architectures in the future.
 
@@ -30,7 +34,8 @@ To build the framework, you should run the following command in the root directo
 
 The framework will be built in `build_amd64` directory, and automatically installed in `/usr/lib` directory in the docker container.
 
-If you have the same architecture with `amd64` and platform Ubunut Jammy, you can install the framework on your system by running the following command in the root directory of the project:
+If you have the same architecture with `amd64` and platform `Ubuntu Jammy`, you can install the framework on your system by running the following command in the root directory of the project after building the framework:
+
 ```bash
 ./build.sh --build-dir build_amd64 --only-install
 ```
@@ -42,9 +47,16 @@ To run tests, you should run the following command in the root directory of the 
 ./docker.sh -v ./test.sh --build-dir test_build_amd64 --build-type Release --all-tests
 ```
 
-Also, you can run only C++ unit tests by running the following command in the root directory of the project:
+Also, you can run only C++ unit tests or python bindings tests by running the following command in the root directory of the project.
+
+C++ unit tests:
 ```bash
 ./docker.sh -v ./test.sh --build-dir test_build_amd64 --build-type Release --cpp-tests
+```
+
+Python bindings tests:
+```bash
+./docker.sh -v ./test.sh --build-dir test_build_amd64 --build-type Release --python-tests
 ```
 
 ## Help
