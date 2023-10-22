@@ -34,7 +34,7 @@ EOF
 }
 
 print_usage() {
-    echo "$0 [--build-dir DIR] [--clean]"
+    echo "$0 [OPTIONS]"
     echo "$0 --help"
 }
 
@@ -47,6 +47,7 @@ print_full_help() {
 #                                   FUNCTIONS                                  #
 # ---------------------------------------------------------------------------- #
 
+# Clean build directory
 perform_clean() {
     if [[ $clean = yes ]]; then
         echo "Cleaning..."
@@ -55,6 +56,7 @@ perform_clean() {
     fi
 }
 
+# Build the framework
 build() {
     echo "----------------------------------- BUILD ----------------------------------"
     echo "Building..."
@@ -70,6 +72,7 @@ build() {
     echo "Building... - done"
 }
 
+# Install the framework
 install_framework() {
     echo "---------------------------------- INSTALL ---------------------------------"
     echo "Installing Axelera Framework package..."
@@ -131,16 +134,16 @@ perform_clean
 #                                     MAIN                                     #
 # ---------------------------------------------------------------------------- #
 
-# Only install the library
+# Only install the framework
 if [[ $only_install = yes ]]; then
     install_framework
     exit 0
 fi
 
-# Build the library
+# Build the framework
 build
 
-# Install the library
+# Install the framework
 if [[ $install = yes ]]; then
     install_framework
 fi
