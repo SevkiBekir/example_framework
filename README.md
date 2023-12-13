@@ -3,7 +3,7 @@
 ![Static Badge](https://img.shields.io/badge/version-1.0.0-red)
 
 
-# Axelera Framework
+# Framework
 ## Problem
 Write the build and test system for the following library:
 
