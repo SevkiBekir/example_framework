@@ -4,10 +4,6 @@
 
 
 # Axelera Framework
-It's solution of the problem which is given by Axelera's AI team.  
-
-The problem is below.
-
 ## Problem
 Write the build and test system for the following library:
 
