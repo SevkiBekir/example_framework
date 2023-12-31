@@ -68,8 +68,8 @@ if(LIB_DEB_PACKAGE)
     set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
     set(CPACK_DEBIAN_PACKAGE_VERSION ${VERSION})
     set(CPACK_DEBIAN_PACKAGE_DESCRIPTION
-    "This library contains sorting algorithms required to develop a Axelera Voyager SDK.")
-    SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "Axelera AI, Infrastructure Team <infra-dev@axelera.ai>")
+    "This library contains sorting algorithms required to develop Example SDK.")
+    SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "Example Inc, Infrastructure Team <info@example.com>")
     include(CPack)
 endif()
 
